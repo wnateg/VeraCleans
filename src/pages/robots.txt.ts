@@ -1,5 +1,6 @@
 // https://docs.astro.build/en/guides/integrations-guide/sitemap/#usage
 import type { APIRoute } from 'astro';
+import { SITE } from "@data/constants";
 
 const robotsTxt = `
 User-agent: Googlebot
@@ -20,7 +21,7 @@ Crawl-delay: 2
 User-agent: *
 Disallow: /
 
-Sitemap: ${new URL('sitemap-index.xml', import.meta.env.SITE).href}
+Sitemap: ${new URL('sitemap-index.xml', SITE.url).href}
 `.trim();
 
 export const GET: APIRoute = () => {
